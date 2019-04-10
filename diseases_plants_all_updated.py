@@ -22,7 +22,7 @@ for disease_link in disease_links:
     soup = BeautifulSoup(r.content, 'html.parser')
     disease_name = soup.find(class_='pest-header-content').find('h2').get_text().strip()
     image_link = soup.find(class_='pest-header-image').find('img')['src']
-    image_link_updated = "http://www.agriculture.gov.au" + image_link
+    image_link_updated = base_url + image_link
     try:
         origin = soup.find(class_='pest-header-content').find_all('p')[1].find_all('strong')[1].next_sibling
     except IndexError:
